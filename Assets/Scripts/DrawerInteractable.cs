@@ -7,6 +7,8 @@ public class DrawerInteractable : XRGrabInteractable
 {
     [SerializeField] Transform drawerTransform;
     [SerializeField] XRSocketInteractor keySocket;
+
+    [SerializeField] GameObject keyIndicatorLight;
     [SerializeField] bool isLocked;
 
     private Transform parentTransform;
@@ -37,6 +39,10 @@ public class DrawerInteractable : XRGrabInteractable
     private void OnDrawerUnlocked(SelectEnterEventArgs arg0)
     {
         isLocked = false;
+        if(keyIndicatorLight != null)
+        {
+            keyIndicatorLight.SetActive(false);
+        }
         Debug.Log("****Drawer Unlocked");
     }
 
@@ -53,7 +59,7 @@ public class DrawerInteractable : XRGrabInteractable
             ChangeLayerMask(defaultLayer);
         }
     }
-     protected override void OnSelectExited(SelectExitEventArgs args)
+      protected override void OnSelectExited(SelectExitEventArgs args)
      {
         base.OnSelectExited(args);
         ChangeLayerMask(grabLayer);
