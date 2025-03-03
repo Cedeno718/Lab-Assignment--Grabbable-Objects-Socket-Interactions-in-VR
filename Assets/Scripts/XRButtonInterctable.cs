@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.UI;
-public class XRButtonInterctable : XRSimpleInteractable
+public class XRButtonInteractable : XRSimpleInteractable
 {
     [SerializeField] Image buttonImage;
     [SerializeField] Color[] buttonColors = new Color[4];
